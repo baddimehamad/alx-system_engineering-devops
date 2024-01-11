@@ -19,5 +19,5 @@ frontend th3gr00t-tech-frontend
 
 backend th3gr00t-tech-backend
 	balance roundrobin
-    server 433015-web-01 35.175.64.47:80 check
-    server 433015-web-02 54.152.38.216:80 check
+	server 433015-web-01 35.175.64.47:80 check
+	server 433015-web-02 54.152.38.216:80 check

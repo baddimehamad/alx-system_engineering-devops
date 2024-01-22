@@ -1,6 +1,4 @@
 #
-# /etc/ufw/before.rules
-#
 # rules.before
 #
 # Rules that should be run before the ufw command line added rules. Custom
@@ -17,12 +15,6 @@
 :ufw-before-forward - [0:0]
 :ufw-not-local - [0:0]
 # End required lines
-
-# Allow port forwarding from port 8080/TCP to port 80/TCP
-*nat
-:PREROUTING ACCEPT [0:0]
--A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
-COMMIT
 
 
 # allow all on loopback
@@ -73,11 +65,11 @@ COMMIT
 
 # allow MULTICAST mDNS for service discovery (be sure the MULTICAST line above
 # is uncommented)
--A ufw-before-input -p udp -d 35.175.64.47 --dport 5353 -j ACCEPT
+-A ufw-before-input -p udp -d 224.0.0.251 --dport 5353 -j ACCEPT
 
 # allow MULTICAST UPnP for service discovery (be sure the MULTICAST line above
 # is uncommented)
--A ufw-before-input -p udp -d 54.152.38.216 --dport 1900 -j ACCEPT
+-A ufw-before-input -p udp -d 239.255.255.250 --dport 1900 -j ACCEPT
 
 # don't delete the 'COMMIT' line or these rules won't be processed
 COMMIT
